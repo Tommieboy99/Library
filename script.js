@@ -13,5 +13,30 @@ function addBookToLibrary(title, author, pages, status) {
   myLibrary.push(newBook);
 }
 
-console.log(addBookToLibrary("Catch me", "Tom Nibbet", 200, "not read"));
-console.log(addBookToLibrary("Not for you", "Rip", 100, "read"));
+myLibrary.forEach(book => {
+  const tableBody = document.querySelector(".table-body");
+  const row = document.createElement("tr");
+  
+  const idCell = document.createElement("td");
+  idCell.textContent = book.id;
+
+  const titleCell = document.createElement("td");
+  titleCell.textContent = book.title;
+
+  const authorCell = document.createElement("td");
+  authorCell.textContent = book.author;
+
+  const pagesCell = document.createElement("td");
+  pagesCell.textContent = book.pages;
+
+  const statusCell = document.createElement("td");
+  statusCell.textContent = book.status;
+
+  row.appendChild(idCell);
+  row.appendChild(titleCell);
+  row.appendChild(authorCell);
+  row.appendChild(pagesCell);
+  row.appendChild(statusCell);
+
+  tableBody.appendChild(row);
+});
