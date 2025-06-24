@@ -14,8 +14,10 @@ function addBookToLibrary(title, author, pages, status) {
 }
 
 function displayLibrary() {
+  const tableBody = document.querySelector(".table-body");
+  tableBody.innerHTML = '';
+
   myLibrary.forEach(book => {
-    const tableBody = document.querySelector(".table-body");
     const row = document.createElement("tr");
   
     const idCell = document.createElement("td");
@@ -33,6 +35,16 @@ function displayLibrary() {
     const statusCell = document.createElement("td");
     statusCell.textContent = book.status;
 
+    const removeCell = document.createElement("td");
+    const removeBtn = document.createElement("button")
+    removeBtn.textContent = "Delete";
+    removeBtn.classList.add("delete-btn")
+    removeBtn.addEventListener("click", () => {
+      removeBook(book.id);
+    });
+    
+    removeCell.appendChild(removeBtn);
+
     row.appendChild(idCell);
     row.appendChild(titleCell);
     row.appendChild(authorCell);
@@ -41,6 +53,15 @@ function displayLibrary() {
 
     tableBody.appendChild(row);
 })};
+
+function removeBook(bookId) {
+  const index = myLibrary.findIndex(book => book.id === bookId);
+  if (index !== -1) {
+    myLibrary.splice(index, 1);
+  }
+
+  displayLibrary();
+}
 
 const newBookBtn = document.querySelector(".btn-newBook");
 const dialog = document.querySelector("dialog");
@@ -67,5 +88,6 @@ bookForm.addEventListener("submit", function(event) {
   addBookToLibrary(titleValue, authorValue, pagesValue, statusValue);
   displayLibrary();
 
+  bookForm.reset();
   dialog.close();
 })
