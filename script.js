@@ -45,11 +45,24 @@ function displayLibrary() {
     
     removeCell.appendChild(removeBtn);
 
+    const toggleCell = document.createElement("td");
+    const toggleBtn = document.createElement("button");
+    toggleBtn.textContent = "Change Status";
+    toggleBtn.classList.add("toggle-btn");
+    toggleBtn.addEventListener("click", () => {
+      book.toggleStatus();
+      displayLibrary();
+    })
+
+    toggleCell.appendChild(toggleBtn);
+
     row.appendChild(idCell);
     row.appendChild(titleCell);
     row.appendChild(authorCell);
     row.appendChild(pagesCell);
     row.appendChild(statusCell);
+    row.appendChild(removeCell);
+    row.appendChild(toggleCell);
 
     tableBody.appendChild(row);
 })};
@@ -62,6 +75,16 @@ function removeBook(bookId) {
 
   displayLibrary();
 }
+
+Book.prototype.toggleStatus = function() {
+  if (this.status === "Not Read") {
+    this.status = "Reading";
+  } else if (this.status === "Reading") {
+    this.status = "Read";
+  } else {
+    this.status = "Not Read";
+  }
+};
 
 const newBookBtn = document.querySelector(".btn-newBook");
 const dialog = document.querySelector("dialog");
