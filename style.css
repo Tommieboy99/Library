@@ -9,6 +9,9 @@
 .books {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .books-table {
@@ -37,3 +40,61 @@
     background-color: #f1f1f1;
 }
 
+.btn-newBook {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-newBook:hover {
+    background-color: #45a049;
+}
+
+dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#bookForm {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+#bookForm label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.submit-btn {
+    margin-top: 0.5rem;
+}
+
+.close-btn {
+    background: none;
+    align-self: end;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    padding: 0px;
+    margin: 0px;
+}
+
+svg {
+    height: 32px;
+    width: 32px;
+}
+
+.cancel-btn-container {
+    display: flex;
+    justify-content: end;
+}
