@@ -1,0 +1,39 @@
+:root {
+    --bgc-table: #fff;
+    --bgc-th: #f4f4f4;
+
+    --tc-table: #333;
+
+}
+
+.books {
+    display: flex;
+    justify-content: center;
+}
+
+.books-table {
+    width: 50%;
+    border-collapse: collapse;
+    color: var(--tc-table);
+    background-color: var(--bgc-table);
+}
+
+.books-table th,
+.books-table td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.books-table th {
+    background-color: var(--bgc-th);
+}
+
+.books-table tr:nth-child(even){
+    background-color: #fafafa;
+}
+
+.books-table tr:hover {
+    background-color: #f1f1f1;
+}
+
