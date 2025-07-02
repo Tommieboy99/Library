@@ -8,6 +8,16 @@ class Book {
   this.pages = newBook.pages;
   this.status = newBook.status;
   }
+  
+  toggleStatus() {
+    if (this.status === "Not Read") {
+      this.status = "Reading";
+    } else if (this.status === "Reading") {
+      this.status = "Read";
+    } else {
+      this.status = "Not Read";
+    }
+  }
 }
 
 function addBookToLibrary(title, author, pages, status) {
@@ -77,16 +87,6 @@ function removeBook(bookId) {
 
   displayLibrary();
 }
-
-Book.prototype.toggleStatus = function() {
-  if (this.status === "Not Read") {
-    this.status = "Reading";
-  } else if (this.status === "Reading") {
-    this.status = "Read";
-  } else {
-    this.status = "Not Read";
-  }
-};
 
 const newBookBtn = document.querySelector(".btn-newBook");
 const dialog = document.querySelector("dialog");
